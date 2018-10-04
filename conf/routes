@@ -50,6 +50,12 @@ POST        /:languageTag/changeCountry                                         
 
 # Shows the details of the cart belonging to the current session
 GET         /:languageTag/cart                                                  @controllers.shoppingcart.CartContentController.show(languageTag: String)
+
+#http://localhost:9000/en/cart/addArticle/cf0440be-d055-48f8-a7f2-1d97c08c415d/1/1
+#Red Bull
+#http://localhost:9000/en/cart/addArticle/f41384e0-db3f-4915-adfd-1a20e4d99797/1/1
+GET         /:languageTag/cart/addArticle/:productId/:variantId/:quantity       @controllers.shoppingcart.AddToCartController.addArticle(languageTag: String, productId: String, variantId: Integer, quantity: Long)
+
 # Adds the selected product to the cart
 POST        /:languageTag/cart/add                                              @controllers.shoppingcart.AddToCartController.process(languageTag: String)
 # Changes the quantity of a selected line item from the cart of the current session
